@@ -1,12 +1,11 @@
 <template>
     <div class="container">
         <product-com :listdata="list" @emit-add="addCart"/>
+        <cart-com :cartdata="cart" @emit-del="delCart"/>
     </div>
 </template>
 <script>
-import ProductComponent from './ProductComponent.vue'
 export default{
-  components: { ProductComponent },
     data:function(){
         return{
             list: [
@@ -28,18 +27,16 @@ export default{
                     stock:80,
                     price:10000,
                 },
-            ],input: "",
+            ],
+            cart:[],
         }
     },
     methods:{
-        addCart(datalist){
-            let newList = {
-                title : datalist,
-            }
-            this.list.push(newList)
-            this.input =""
+        addCart(index){
+            this.cart.push(this.list[index]),
+            console.log('Component added.')
         },
-        deleteList(index){
+        delCart(index){
             this.list.splice(index,1)
         }
     },

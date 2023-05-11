@@ -8,16 +8,18 @@
                     <th>Description</th>
                     <th>Stock</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(item, index) in listdata" :key="index">
-                    <th>{{item.name}}</th>
+                    <td>{{item.name}}</td>
                     <td>{{item.desc}}</td>
                     <td>{{item.stock}}</td>
                     <td>{{item.price}}</td>
-                    <td><button-com text="Add to cart" @click="addCart(index)" color="blue" /></td>
+                    <td></td>
+                    <td><button-com text="Add to cart" @emit-click="addCart(index)" color="blue" /></td>
                 </tr>
             </tbody>
         </table>
