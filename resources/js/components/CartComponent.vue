@@ -15,7 +15,6 @@
           <td>{{ cart.name }}</td>
           <td>{{ cart.stock }}</td>
           <td>{{ cart.price }}</td>
-          <td></td>
           <td>
             <button-com
               text="Delete"

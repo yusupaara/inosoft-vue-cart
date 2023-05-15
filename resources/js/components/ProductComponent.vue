@@ -17,7 +17,7 @@
                     <td>{{item.name}}</td>
                     <td>{{item.desc}}</td>
                     <td>{{item.stock}}</td>
-                    <td>{{item.price}}</td>
+                    <td><button type="button" @onClick="functionTest">{{item.price}}</button></td>
                     <td></td>
                     <td><button-com text="Add to cart" @emit-click="addCart(index)" color="blue" /></td>
                 </tr>
@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  emits:["emit-add"],
+  emits:["emit-add","emit-test"],
   props:{
     listdata:{
         type:Array,
@@ -41,10 +41,12 @@ export default {
   },
   method:{
     addCart(index){
-        this.$emit("emit-add", index)
+        this.$emit("emit-add", index);
+    },
+    functionTest() {
+        this.$emit("emit-test");
     }
   }
-
 }
 </script>
 
